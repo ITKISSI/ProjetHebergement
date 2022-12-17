@@ -19,4 +19,9 @@ public class TypeAnnonce {
     @NotBlank(message = "Libelle est obligatoire")
     @Column(length = 30)
     private String Libelle;
+
+    @ManyToOne
+    private Annonce annonce;
+
+
 }

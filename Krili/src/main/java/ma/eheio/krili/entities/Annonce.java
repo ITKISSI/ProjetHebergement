@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -36,4 +38,15 @@ public class Annonce {
 
     @NotBlank(message = "image est obligatoire")
     private Byte[] image;
+
+    @OneToMany
+    private Collection<Reservation> reservations;
+    @ManyToOne
+    private Proprietaire proprietaire;
+
+    @OneToMany
+    private Collection<TypeAnnonce> typeAnnonces;
+
+    @OneToMany
+    private Collection<ReductionAnnonce> reductionAnnonces;
 }

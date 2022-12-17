@@ -26,5 +26,7 @@ public class Reservation {
   @ManyToOne
     private Client client;
 
+    @ManyToOne
+    private Annonce annonce;
 
 }

@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -40,5 +42,9 @@ public class Proprietaire {
 
     @NotBlank(message = "No_patent est obligatoire")
     private String No_patent;
+
+    @OneToMany
+    private Collection<Annonce> annonce;
+
 
 }

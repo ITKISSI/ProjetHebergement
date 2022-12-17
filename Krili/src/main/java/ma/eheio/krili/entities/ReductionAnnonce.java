@@ -23,4 +23,7 @@ public class ReductionAnnonce {
 
     @NotBlank(message = "Date_fin est obligatoire")
     private Date Date_fin;
+
+    @ManyToOne
+    private Annonce annonce;
 }
