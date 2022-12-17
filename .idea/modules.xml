@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Krili/Krili.iml" filepath="$PROJECT_DIR$/Krili/Krili.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ProjetHebergement.iml" filepath="$PROJECT_DIR$/.idea/ProjetHebergement.iml" />
+    </modules>
+  </component>
+</project>
