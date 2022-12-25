@@ -20,6 +20,7 @@ import java.util.Optional;
 public class KriliController {
     private ReservationRepository reservationRepository;
     private AnnonceRepository annonceRepository;
+    private  ImageRepository imageRepository;
     @RequestMapping(value="/index",method= RequestMethod.GET)
 
     public String consulterAnnounce(Model model , @RequestParam(name="page",defaultValue = "0")int p, @RequestParam(name="size",defaultValue = "10")int s) {
@@ -155,6 +156,34 @@ public class KriliController {
         return byteObjects;
     }
 */
+
+
+    /************ upload images  *******************/
+
+    @PostMapping("/upload")
+    public String handleImageUpload(@RequestParam("image") List<MultipartFile> images) {
+        for (MultipartFile image : images) {
+            Image img = new Image();
+            img.setData(image.getBytes());
+            imageRepository.save(img);
+        }
+        return "redirect:/images";
+    }
+
+    @GetMapping("/images")
+    public String showImages(Model model) {
+        List<Image> images = imageRepository.findAll();
+        model.addAttribute("images", images);
+        return "images";
+    }
+    
+    /* view de telechargement image
+            <div th:each="image : ${images}">
+            <img th:src="'data:image/png;base64,' + ${image.data}" />
+            </div>
+
+     */
+
 
 
 

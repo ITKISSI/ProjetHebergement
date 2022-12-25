@@ -49,4 +49,8 @@ public class Annonce {
 
     @OneToMany
     private Collection<ReductionAnnonce> reductionAnnonces;
+
+    @OneToMany
+    private Collection<Image> images;
+
 }
