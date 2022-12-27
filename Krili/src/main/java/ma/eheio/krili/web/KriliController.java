@@ -1,8 +1,10 @@
 package ma.eheio.krili.web;
 
 import ma.eheio.krili.dao.AnnonceRepository;
+import ma.eheio.krili.dao.ImageRepository;
 import ma.eheio.krili.dao.ReservationRepository;
 import ma.eheio.krili.entities.Annonce;
+import ma.eheio.krili.entities.Image;
 import ma.eheio.krili.entities.Reservation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,13 +16,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class KriliController {
     private ReservationRepository reservationRepository;
     private AnnonceRepository annonceRepository;
-    private  ImageRepository imageRepository;
+    private ImageRepository imageRepository;
     @RequestMapping(value="/index",method= RequestMethod.GET)
 
     public String consulterAnnounce(Model model , @RequestParam(name="page",defaultValue = "0")int p, @RequestParam(name="size",defaultValue = "10")int s) {
@@ -161,10 +164,11 @@ public class KriliController {
     /************ upload images  *******************/
 
     @PostMapping("/upload")
-    public String handleImageUpload(@RequestParam("image") List<MultipartFile> images) {
+    public String handleImageUpload(@RequestParam("image") List<MultipartFile> images)
+    {
         for (MultipartFile image : images) {
             Image img = new Image();
-            img.setData(image.getBytes());
+            //img.setData(image.getBytes());
             imageRepository.save(img);
         }
         return "redirect:/images";

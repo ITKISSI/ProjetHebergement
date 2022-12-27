@@ -1,23 +1,15 @@
 <!DOCTYPE html>
-<html xml:th="http://www.thymeleaf.org"
-      xmlns:layou="http://www.ultraq.net.nz/thymeLeaf/layout" xmlns="http://www.w3.org/1999/html">
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="fragement/layout.html">
 <head>
     <meta charset="UTF-8"/>
     <title>Aceuil</title>
-    <link href="https://fonts.googleapis.com/css?family=Poppins%7CQuicksand:400,500,700" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/bootsrap.css"/>
-
-    <!-- FONT-AWESOME ICON CSS -->
-    <link rel="stylesheet" href="../static/css/font-awesome.min.css"/>
-    <!--== ALL CSS FILES ==-->
-    <link rel="stylesheet" href="../static/css/style.css"/>
-    <link rel="stylesheet" href="../static/css/materialize.css"/>
-    <link rel="stylesheet" href="../static/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../static/css/mob.css"/>
-    <link rel="stylesheet" href="../static/css/animate.css"/>
 </head>
 <body>
-
+<!--END HEADER SECTION-->
+<!--====== HOTELS LIST ==========-->
+<div layout:fragment="content">
 
 <!--====== BANNER ==========-->
 <section>
@@ -165,12 +157,7 @@
         </div>
     </div>
 </section>
+</div>
 
-<script src="../static/js/bootsrap.js"></script>
-<script src="../static/js/jquery-latest.min.js"></script>
-<script src="../static/js/bootstrap.js"></script>
-<script src="../static/js/wow.min.js"></script>
-<script src="../static/js/materialize.min.js"></script>
-<script src="../static/js/custom.js"></script>
 </body>
 </html>
