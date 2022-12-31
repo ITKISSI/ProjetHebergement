@@ -16,5 +16,9 @@ public class AzizController  {
     {
         return "register";
     }
-
+    @RequestMapping("/AnnonceDetails")
+    public String Annonne()
+    {
+        return "AnnonceDetails";
+    }
 }

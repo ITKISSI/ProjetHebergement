@@ -181,29 +181,43 @@
                         <!--LISTINGS-->
                         <div class="row">
                             <!--LISTINGS START-->
-                            <div class="hot-page2-alp-r-list">
-                                <div class="col-md-3 hot-page2-alp-r-list-re-sp">
+                            <div th:each="p:${AnnonceList}" class="hot-page2-alp-r-list">
+                                <div  class="col-md-3 hot-page2-alp-r-list-re-sp">
+
                                     <a href="javascript:void(0);">
                                         <div class="hotel-list-score">4.5</div>
                                         <div class="hot-page2-hli-1"> <img src="../static/images/sight/1.jpg" alt=""> </div>
-                                        <div class="hom-hot-av-tic hom-hot-av-tic-list"> Available Rooms: 42 </div>
+                                        <div class="hom-hot-av-tic hom-hot-av-tic-list" >  </div>
                                     </a>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="hot-page2-alp-ri-p2"> <a href="hotel-details.html"><h3>Universal luxury Grand Hotel</h3></a>
+                                    <div class="hot-page2-alp-ri-p2"> <a href="hotel-details.html"><h3 th:text="${p.titre}" ></h3></a>
                                         <ul>
-                                            <li>28800 Orchard Lake Road, Suite 180 Farmington Hills, U.S.A.</li>
-                                            <li>+101-1231-1231, +61 6541-4561-12</li>
+                                            <li  th:text="${p.adress} "></li> </br>
+                                            <li th:text="${p.capacite}"></li>
+
+
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="hot-page2-alp-ri-p3">
-                                        <div class="hot-page2-alp-r-hot-page-rat">25%Off</div> <span class="hot-list-p3-1">Price Per Night</span> <span class="hot-list-p3-2">$650</span><span class="hot-list-p3-4">
-													<a href="hotel-details.html" class="hot-page2-alp-quot-btn">Book Now</a>
-												</span> </div>
+                                        <div class="hot-page2-alp-ri-p3">
+                                            <div class="hot-page2-alp-r-hot-page-rat">25%Off</div> <span class="hot-list-p3-1">Price Per Night</span> <span class="hot-list-p3-2" th:text="${p.prix}"></span><span class="hot-list-p3-4">
+                                            <a href="hotel-details.html" class="hot-page2-alp-quot-btn">Details Annonce</a> </span>
+                                        </div>
                                 </div>
                             </div>
+
+                            <div>
+                                <div>
+                                    <ul class="pagination">
+                                        <li  class="page-item" th:each="pa,status:${pages}" >
+                                            <a th:href="@{Acceuil(page=${status.index})}" th:text="${status.index}" class="page-link"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>

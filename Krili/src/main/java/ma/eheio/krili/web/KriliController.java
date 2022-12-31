@@ -30,20 +30,20 @@ public class KriliController {
     private ImageRepository imageRepository;
     @RequestMapping(value="/Acceuil",method= RequestMethod.GET)
 
-    public String consulterAnnounce(Model model , @RequestParam(name="page",defaultValue = "0")int p, @RequestParam(name="size",defaultValue = "10")int s) {
+    public String consulterAnnounce(Model model , @RequestParam(name = "page",defaultValue = "0") int page,
+                                    @RequestParam(name = "size",defaultValue = "2") int size) {
 
 
-        Page<Reservation> pageReservations= reservationRepository.findAll(PageRequest.of(p, s)) ;
+        Page<Annonce> annonceList= annonceRepository.findAll(PageRequest.of(page, size)) ;
 
-        model.addAttribute("listReservations",pageReservations.getContent());
+        model.addAttribute("AnnonceList",annonceList.getContent());
 
-        int[] pages= new int[pageReservations.getTotalPages()];
+        int[] pages=new int[annonceList.getTotalPages()];
         model.addAttribute("pages",pages);
-        model.addAttribute("size", s);
-        model.addAttribute("pageCourante", p);
 
         return "Acceuil";															 //       page de reservation +profile + Filtre_annonce..
     }
+
 
     @RequestMapping(value="/reservation",method=RequestMethod.POST)
 
