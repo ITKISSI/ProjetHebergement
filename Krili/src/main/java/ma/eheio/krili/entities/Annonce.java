@@ -36,6 +36,7 @@ public class Annonce {
     @NotBlank(message = "Prix est obligatoire")
     private double Prix;
 
+    /*!!!!! Revoir  */
     @NotBlank(message = "image est obligatoire")
     private Byte[] image;
 
