@@ -41,7 +41,7 @@ public class Client {
     @Column(length = 25)
     private String Telephone;
 
-    @OneToMany
+    @ManyToOne
     private Collection<Reservation> reservations;
 
 }

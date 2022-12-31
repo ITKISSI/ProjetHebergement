@@ -10,6 +10,6 @@ public class TestTemplateController {
     @RequestMapping("/ahmed")
     public String index()
     {
-        return "Aceuil";
+        return "Acceuil";
     }
 }

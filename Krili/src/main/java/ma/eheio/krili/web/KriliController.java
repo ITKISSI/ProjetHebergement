@@ -6,6 +6,7 @@ import ma.eheio.krili.dao.ReservationRepository;
 import ma.eheio.krili.entities.Annonce;
 import ma.eheio.krili.entities.Image;
 import ma.eheio.krili.entities.Reservation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -21,10 +22,13 @@ import java.util.Optional;
 
 @Controller
 public class KriliController {
+    @Autowired
     private ReservationRepository reservationRepository;
+    @Autowired
     private AnnonceRepository annonceRepository;
+    @Autowired
     private ImageRepository imageRepository;
-    @RequestMapping(value="/index",method= RequestMethod.GET)
+    @RequestMapping(value="/Acceuil",method= RequestMethod.GET)
 
     public String consulterAnnounce(Model model , @RequestParam(name="page",defaultValue = "0")int p, @RequestParam(name="size",defaultValue = "10")int s) {
 
@@ -38,7 +42,7 @@ public class KriliController {
         model.addAttribute("size", s);
         model.addAttribute("pageCourante", p);
 
-        return "index";															 //       page de reservation +profile + Filtre_annonce..
+        return "Acceuil";															 //       page de reservation +profile + Filtre_annonce..
     }
 
     @RequestMapping(value="/reservation",method=RequestMethod.POST)

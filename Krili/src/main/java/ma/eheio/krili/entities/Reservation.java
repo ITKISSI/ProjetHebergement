@@ -23,7 +23,7 @@ public class Reservation {
     @NotBlank(message = "Nbr_personnes est obligatoire")
     private int Nbr_personnes;
 
-  @ManyToOne
+    @ManyToOne
     private Client client;
 
     @ManyToOne

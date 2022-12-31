@@ -21,7 +21,7 @@ public class Annonce {
     @NotBlank(message = "Titre est obligatoire")
     private String Titre;
 
-    @NotBlank(message = "Adress est obligatoire")
+    @NotBlank(message = "Localisation est obligatoire")
     private String Localisation;
 
     @NotBlank(message = "Adress est obligatoire")
@@ -30,7 +30,7 @@ public class Annonce {
     @NotBlank(message = "Description est obligatoire")
     private String Description ;
     @Column(length = 25)
-    @NotBlank(message = "Prix est obligatoire")
+    @NotBlank(message = "Capacite est obligatoire")
     private int Capacite;
     @Column(length = 25)
     @NotBlank(message = "Prix est obligatoire")
