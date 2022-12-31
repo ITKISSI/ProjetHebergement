@@ -41,7 +41,12 @@ public class Client {
     @Column(length = 25)
     private String Telephone;
 
+<<<<<<< Updated upstream
     @OneToMany
     private Collection<Reservation> reservations;
+=======
+    @ManyToOne
+    private Collection <Reservation> reservations;
+>>>>>>> Stashed changes
 
 }
