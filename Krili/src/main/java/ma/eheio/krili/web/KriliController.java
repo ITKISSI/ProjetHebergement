@@ -44,6 +44,26 @@ public class KriliController {
         return "Acceuil";															 //       page de reservation +profile + Filtre_annonce..
     }
 
+    @RequestMapping("/Annonce/Details")
+    public String Update(Model model,Long id)
+    {
+        Annonce annonce=annonceRepository.DetailsAnonce(id);
+        model.addAttribute("Annonce",annonce);
+        return "AnnonceDetails";
+    }
+
+    @RequestMapping(value = "Annonce/reservation")
+
+    public  String Reservation(Model model,Long id){
+        Annonce annonce=annonceRepository.DetailsAnonce(id);
+        model.addAttribute("Annonce",annonce);
+        return "Reservation";
+    }
+    @PostMapping(value = "/Annonce/Reservation")
+    public String Reservation(Model model,Reservation reservation){
+        reservationRepository.save(reservation);
+        return "redirect:/Acceuil";
+    }
 
     @RequestMapping(value="/reservation",method=RequestMethod.POST)
 
@@ -51,8 +71,8 @@ public class KriliController {
 
         model.addAttribute("reservation",new Reservation());
         return "FormReservation";
-
     }
+
 
     @RequestMapping(value = "/save",method=RequestMethod.POST)
 

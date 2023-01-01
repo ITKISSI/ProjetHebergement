@@ -17,7 +17,6 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long Id_Client;
     @Column(length = 25)
     @NotBlank(message = "Nom est obligatoire")
@@ -29,7 +28,6 @@ public class Client {
     private String Adress;
     @Column(length = 25)
     @NotBlank(message = "Password est obligatoire")
-
     private String Password;
     @NotBlank(message = "NO_passport est obligatoire")
     @Column(length = 30)
@@ -40,13 +38,6 @@ public class Client {
     @NotBlank(message = "Telephone est obligatoire")
     @Column(length = 25)
     private String Telephone;
-
-<<<<<<< Updated upstream
     @OneToMany
     private Collection<Reservation> reservations;
-=======
-    @ManyToOne
-    private Collection <Reservation> reservations;
->>>>>>> Stashed changes
-
 }

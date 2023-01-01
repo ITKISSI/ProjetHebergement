@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="fragement/layout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Reservation</title>
+</head>
+<body>
+<div layout:fragment="content">
+<!--DASHBOARD-->
+<section>
+    <div class="tr-register">
+        <div class="tr-regi-form v2-search-form">
+            <h4>Reserver votre Annonce</h4>
+            <p> C’est gratuit et le sera toujours. </p>
+            <form class="contact__form" method="post" th:action="@{Reservation}">
+                <input type="hidden" name="annonce" th:value="${Annonce.id_announce}">
+
+                <input type="hidden" name="client" th:value="1">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input type="date" id="from" name="Date_entree" >
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="date"  name="Date_sortie" >
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="submit" value="Reserve maintenant" class="waves-effect waves-light tourz-sear-btn v2-ser-btn">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!--END DASHBOARD-->
+</div>
+</body>
+</html>

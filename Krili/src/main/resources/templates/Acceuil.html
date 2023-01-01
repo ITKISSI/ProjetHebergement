@@ -203,7 +203,7 @@
                                 <div class="col-md-3">
                                         <div class="hot-page2-alp-ri-p3">
                                             <div class="hot-page2-alp-r-hot-page-rat">25%Off</div> <span class="hot-list-p3-1">Price Per Night</span> <span class="hot-list-p3-2" th:text="${p.prix}"></span><span class="hot-list-p3-4">
-                                            <a href="hotel-details.html" class="hot-page2-alp-quot-btn">Details Annonce</a> </span>
+                                            <a th:href="@{/Annonce/Details(id=${p.id_announce})}" class="hot-page2-alp-quot-btn">Details Annonce</a> </span>
                                         </div>
                                 </div>
                             </div>
