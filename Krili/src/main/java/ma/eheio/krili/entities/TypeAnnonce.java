@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -20,8 +22,8 @@ public class TypeAnnonce {
     @Column(length = 30)
     private String Libelle;
 
-    @ManyToOne
-    private Annonce annonce;
+    @OneToMany
+    private Collection<Annonce> annonce;
 
 
 }

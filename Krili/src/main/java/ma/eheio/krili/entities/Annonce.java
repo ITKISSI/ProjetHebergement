@@ -45,8 +45,8 @@ public class Annonce {
     @ManyToOne
     private Proprietaire proprietaire;
 
-    @OneToMany
-    private Collection<TypeAnnonce> typeAnnonces;
+    @ManyToOne
+    private TypeAnnonce typeAnnonces;
 
     @OneToMany
     private Collection<ReductionAnnonce> reductionAnnonces;
