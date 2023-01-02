@@ -14,17 +14,23 @@
 		<div class="tr-register">
 			<div class="tr-regi-form">
 				<h4>Se connecter</h4>
+				<h3>Client</h3>
 				<p>C'est gratuit et le sera toujours.</p>
-				<form class="col s12">
+				<form th:action="Login_Client" method="post" class="col s12" th:object="${client}">
+					<div th:if="${erreur != null} ">
+						<div class="alert alert-danger" th:text="${erreur}">
+
+						</div>
+					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input type="text" class="validate">
+							<input type="text" class="validate" th:field="*{email}">
 							<label>Login</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
-							<input type="password" class="validate">
+							<input type="password" class="validate" th:field="*{password}">
 							<label>Mot de passe</label>
 						</div>
 					</div>

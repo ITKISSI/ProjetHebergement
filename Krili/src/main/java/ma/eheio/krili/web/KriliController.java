@@ -1,11 +1,9 @@
 package ma.eheio.krili.web;
 
-import ma.eheio.krili.dao.AnnonceRepository;
-import ma.eheio.krili.dao.ImageRepository;
-import ma.eheio.krili.dao.ReservationRepository;
-import ma.eheio.krili.entities.Annonce;
-import ma.eheio.krili.entities.Image;
-import ma.eheio.krili.entities.Reservation;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import ma.eheio.krili.dao.*;
+import ma.eheio.krili.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,9 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class KriliController {
@@ -28,11 +24,61 @@ public class KriliController {
     private AnnonceRepository annonceRepository;
     @Autowired
     private ImageRepository imageRepository;
+    @Autowired
+    private ClientRepository clientRepository;
+    @Autowired
+    private ProprietaireRepository proprietaireRepository;
+
+    @RequestMapping("/AnnonceDetails")
+    public String Annonne()
+    {
+        return "AnnonceDetails";
+    }
+    @RequestMapping("/Login_Client")
+    public String loginClient(@ModelAttribute Client client)
+    {
+
+        return "ClientLogin";
+    }
+    @PostMapping("/Login_Client")
+    public String loginClient(HttpServletRequest request, @ModelAttribute Client client, Model model)
+    {
+        Client client1=clientRepository.findByEmailAndPassword(client.getEmail(),client.getPassword());
+        if(client1 == null) {
+
+            model.addAttribute("erreur", "login ou mot de passe incorrect");
+            return "ClientLogin";
+        }
+        else {
+
+            HttpSession session= request.getSession(true);
+            session.setAttribute("id",client1.getId_Client());
+            return "redirect:/Acceuil";
+        }
+    }
+    @RequestMapping("/Login_proprietaire")
+    public String loginProprietaire(@ModelAttribute Proprietaire proprietaire)
+    {
+        return "ProprietaireLogin";
+    }
+    @PostMapping("/Login_proprietaire")
+    public String loginProprietaire(HttpServletRequest request, @ModelAttribute Proprietaire proprietaire, Model model)
+    {
+        Proprietaire proprietaire1 =proprietaireRepository.findProprietaireByEmailAndPassword(proprietaire.getEmail(),proprietaire.getPassword());
+        if(proprietaire1 == null) {
+            model.addAttribute("erreur", "login ou mot de passe incorrect");
+            return "ProprietaireLogin";
+        }
+        else {
+            HttpSession session= request.getSession(true);
+            session.setAttribute("id",proprietaire1.getId_Proprietaire());
+            return "redirect:/Acceuil";
+        }
+    }
     @RequestMapping(value="/Acceuil",method= RequestMethod.GET)
 
     public String consulterAnnounce(Model model , @RequestParam(name = "page",defaultValue = "0") int page,
                                     @RequestParam(name = "size",defaultValue = "2") int size) {
-
 
         Page<Annonce> annonceList= annonceRepository.findAll(PageRequest.of(page, size)) ;
 
