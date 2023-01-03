@@ -1,21 +1,15 @@
 package ma.eheio.krili;
 
-import ma.eheio.krili.metier.AnnonceReservationImpl;
-import ma.eheio.krili.metier.IAnnonceReservation;
+import ma.eheio.krili.dao.TypeAnnonceRepository;
+import ma.eheio.krili.entities.Annonce;
+import ma.eheio.krili.entities.TypeAnnonce;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.format.DateTimeParseException;
-import java.time.temporal.ChronoUnit;
-import java.util.Locale;
-
 @SpringBootApplication
-public class KriliApplication {
+public class KriliApplication implements CommandLineRunner {
 
 
     public static void main(String[] args) {
@@ -31,7 +25,7 @@ public class KriliApplication {
         LocalDate  d2 = LocalDate.parse(date2, df);
 
         Long datediff = ChronoUnit.DAYS.between(d1,d2);
-        System.out.println("hello");*/
+        System.out.println("hello");
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M-dd-yyyy");
         formatter = formatter.withLocale( Locale.US );  // Locale specifies human language for translating, and cultural norms for lowercase/uppercase and abbreviations and such. Example: Locale.US or Locale.CANADA_FRENCH
@@ -42,8 +36,12 @@ public class KriliApplication {
         System.out.println(date.getDayOfMonth());
 
         double prix=date2.getDayOfMonth() - date.getDayOfMonth();
-        System.out.println(prix);
+        System.out.println(prix);*/
 
     }
 
+    @Override
+    public void run(String... args) throws Exception {
+
+    }
 }

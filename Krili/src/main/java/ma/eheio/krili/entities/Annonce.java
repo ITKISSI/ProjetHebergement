@@ -18,16 +18,19 @@ public class Annonce {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_announce;
-    @Column(length = 25)
+    @Column(length = 10000)
     @NotBlank(message = "Titre est obligatoire")
     private String Titre;
 
     @NotBlank(message = "Localisation est obligatoire")
+    @Column(length = 10000)
     private String Localisation;
 
+    @Column(length = 10000)
     @NotBlank(message = "Adress est obligatoire")
     private String Adress;
 
+    @Column(length = 10000)
     @NotBlank(message = "Description est obligatoire")
     private String Description ;
     @Column(length = 25)
