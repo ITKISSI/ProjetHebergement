@@ -15,8 +15,8 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_image;
 
-    @Lob
-    private byte[] data;
+    @Column(length = 30)
+    private String image;
     @ManyToOne
     private Annonce annonce;
 

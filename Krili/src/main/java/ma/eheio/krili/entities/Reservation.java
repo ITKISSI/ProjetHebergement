@@ -24,7 +24,6 @@ public class Reservation {
     private Date Date_sortie;
     private double montantPayer;
 
-    private int nbr_personnes;
     @ManyToOne
     private Client client;
   /* Revoir  OneToMany */

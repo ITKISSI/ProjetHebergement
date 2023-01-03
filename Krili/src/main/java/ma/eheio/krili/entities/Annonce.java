@@ -12,6 +12,7 @@ import java.util.Collection;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Annonce {
 
     @Id
@@ -35,10 +36,6 @@ public class Annonce {
     @Column(length = 25)
     @NotBlank(message = "Prix est obligatoire")
     private double Prix;
-
-    /*!!!!! Revoir  */
-    @NotBlank(message = "image est obligatoire")
-    private Byte[] image;
 
     @OneToMany
     private Collection<Reservation> reservations;
