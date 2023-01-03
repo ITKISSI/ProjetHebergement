@@ -1,5 +1,6 @@
 package ma.eheio.krili;
 
+import ma.eheio.krili.dao.AnnonceRepository;
 import ma.eheio.krili.dao.TypeAnnonceRepository;
 import ma.eheio.krili.entities.Annonce;
 import ma.eheio.krili.entities.TypeAnnonce;
@@ -9,7 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KriliApplication implements CommandLineRunner {
+public class KriliApplication  {
 
 
     public static void main(String[] args) {
@@ -38,10 +39,9 @@ public class KriliApplication implements CommandLineRunner {
         double prix=date2.getDayOfMonth() - date.getDayOfMonth();
         System.out.println(prix);*/
 
-    }
 
-    @Override
-    public void run(String... args) throws Exception {
 
     }
+
+
 }

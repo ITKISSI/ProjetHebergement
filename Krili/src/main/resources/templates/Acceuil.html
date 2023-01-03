@@ -194,7 +194,7 @@
                                     <div class="hot-page2-alp-ri-p2"> <a href="hotel-details.html"><h3 th:text="${p.titre}" ></h3></a>
                                         <ul>
                                             <li  th:text="${p.adress} "></li> </br>
-                                            <li th:text="${p.capacite}"></li>
+
 
 
                                         </ul>
@@ -207,6 +207,15 @@
                                         </div>
                                 </div>
                             </div>
+                            <table>
+                                <tr>
+                                    <th>Employee Name</th>
+                                    <th>Department</th>
+                                </tr>
+                                <tr th:each="row : ${test}">
+                                   <p th:text="${row.prix}"></p>
+                                </tr>
+                            </table>
 
                             <div>
                                 <div>
@@ -226,5 +235,7 @@
     </div>
 </section>
 </div>
+
+
 </body>
 </html>

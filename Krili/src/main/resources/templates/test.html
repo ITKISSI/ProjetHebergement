@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="fragement/layout.html">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Aceuil</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Employee Name</th>
+        <th>Department</th>
+    </tr>
+    <tr th:each="a : ${ann}">
+        <td th:text="${a.titre}"></td>
+        <td th:text="${a.adress}"></td>
+    </tr>
+</table>
+</body>
+</html>

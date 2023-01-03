@@ -44,11 +44,61 @@
 
                     <!--====== TOUR DESCRIPTION ==========-->
                     <div class="tour_head1 hotel-com-color">
-                        <h3>About GRAND HOTEL</h3>
+                        <h3>Description d'annonce</h3>
                         <p th:text="${Annonce.description}"></p>
 
                     </div>
                     <!--====== ROOMS: HOTEL BOOKING ==========-->
+
+                    <!--====== ROOMS: HOTEL BOOKING ==========-->
+                    <div class="tour_head1 hotel-book-room">
+                        <h3>Photo Gallery</h3>
+                        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators carousel-indicators-1">
+                                <li data-target="#myCarousel1" data-slide-to="0"><img src="images/gallery/s1.jpg" alt="Chania">
+                                </li>
+                                <li data-target="#myCarousel1" data-slide-to="1"><img src="images/gallery/s2.jpeg" alt="Chania">
+                                </li>
+                                <li data-target="#myCarousel1" data-slide-to="2"><img src="images/gallery/s3.jpeg" alt="Chania">
+                                </li>
+                                <li data-target="#myCarousel1" data-slide-to="3"><img src="images/gallery/s4.jpeg" alt="Chania">
+                                </li>
+                                <li data-target="#myCarousel1" data-slide-to="4"><img src="images/gallery/s5.jpeg" alt="Chania">
+                                </li>
+                                <li data-target="#myCarousel1" data-slide-to="5"><img src="images/gallery/s6.jpeg" alt="Chania">
+                                </li>
+                                <li data-target="#myCarousel1" data-slide-to="6"><img src="images/gallery/s7.jpeg" alt="Chania">
+                                </li>
+                                <li data-target="#myCarousel1" data-slide-to="7"><img src="images/gallery/s8.jpg" alt="Chania">
+                                </li>
+                                <li data-target="#myCarousel1" data-slide-to="8"><img src="images/gallery/s9.jpg" alt="Chania">
+                                </li>
+                            </ol>
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner carousel-inner1" role="listbox">
+                                <div class="item active">  </div>
+                                <div class="item"> <img src="images/gallery/s2.jpeg" alt="Chania" width="460" height="345"> </div>
+                                <div class="item"> <img src="images/gallery/s3.jpeg" alt="Chania" width="460" height="345"> </div>
+                                <div class="item"> <img src="images/gallery/s4.jpeg" alt="Chania" width="460" height="345"> </div>
+                                <div class="item"> <img src="images/gallery/s5.jpeg" alt="Chania" width="460" height="345"> </div>
+                                <div class="item"> <img src="images/gallery/s6.jpeg" alt="Chania" width="460" height="345"> </div>
+                                <div class="item"> <img src="images/gallery/s7.jpeg" alt="Chania" width="460" height="345"> </div>
+                                <div class="item"> <img src="images/gallery/s8.jpg" alt="Chania" width="460" height="345"> </div>
+                                <div class="item"> <img src="images/gallery/s9.jpg" alt="Chania" width="460" height="345"> </div>
+                            </div>
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel1" role="button" data-slide="prev"> <span><i class="fa fa-angle-left hotel-gal-arr" aria-hidden="true"></i></span> </a>
+                            <a class="right carousel-control" href="#myCarousel1" role="button" data-slide="next"> <span><i class="fa fa-angle-right hotel-gal-arr hotel-gal-arr1" aria-hidden="true"></i></span> </a>
+                        </div>
+                    </div>
+
+
+                    <!----Localisation--->
+                    <div class="tour_head1 tout-map map-container">
+                        <h3>Location</h3>
+                        <iframe th:src="${Annonce.localisation}"  allowfullscreen></iframe>
+                    </div>
                 </div>
 
             </div>

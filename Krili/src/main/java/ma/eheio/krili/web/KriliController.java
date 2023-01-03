@@ -101,14 +101,23 @@ public class KriliController {
     public String consulterAnnounce(Model model , @RequestParam(name = "page",defaultValue = "0") int page,
                                     @RequestParam(name = "size",defaultValue = "2") int size) {
 
-        Page<Annonce> annonceList= annonceRepository.findAll(PageRequest.of(page, size)) ;
+        Page<Annonce> annonceList = annonceRepository.findAll(PageRequest.of(page, size));
 
-        model.addAttribute("AnnonceList",annonceList.getContent());
+        model.addAttribute("AnnonceList", annonceList.getContent());
 
-        int[] pages=new int[annonceList.getTotalPages()];
-        model.addAttribute("pages",pages);
+        int[] pages = new int[annonceList.getTotalPages()];
+        model.addAttribute("pages", pages);
 
-        return "Acceuil";															 //       page de reservation +profile + Filtre_annonce..
+
+
+
+        return "Acceuil";                                                             //       page de reservation +profile + Filtre_annonce..
+    }
+    @GetMapping("/test")
+    public String Test(Model model){
+        List<AceuilAnnonce> annonceMy = annonceRepository.AnnonceImage();
+        model.addAttribute("ann", annonceMy);
+        return "test";
     }
 
     @RequestMapping("/Annonce/Details")
