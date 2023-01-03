@@ -1,11 +1,11 @@
 package ma.eheio.krili.web;
 
-<<<<<<< Updated upstream
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import ma.eheio.krili.dao.*;
 import ma.eheio.krili.entities.*;
-=======
+
 import ma.eheio.krili.dao.AnnonceRepository;
 import ma.eheio.krili.dao.ImageRepository;
 import ma.eheio.krili.dao.ReservationRepository;
@@ -13,7 +13,7 @@ import ma.eheio.krili.entities.Annonce;
 import ma.eheio.krili.entities.Image;
 import ma.eheio.krili.entities.Reservation;
 import ma.eheio.krili.metier.IAnnonceReservation;
->>>>>>> Stashed changes
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
