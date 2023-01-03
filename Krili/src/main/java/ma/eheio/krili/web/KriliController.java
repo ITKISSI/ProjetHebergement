@@ -1,9 +1,19 @@
 package ma.eheio.krili.web;
 
+<<<<<<< Updated upstream
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import ma.eheio.krili.dao.*;
 import ma.eheio.krili.entities.*;
+=======
+import ma.eheio.krili.dao.AnnonceRepository;
+import ma.eheio.krili.dao.ImageRepository;
+import ma.eheio.krili.dao.ReservationRepository;
+import ma.eheio.krili.entities.Annonce;
+import ma.eheio.krili.entities.Image;
+import ma.eheio.krili.entities.Reservation;
+import ma.eheio.krili.metier.IAnnonceReservation;
+>>>>>>> Stashed changes
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,6 +25,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+
+import java.util.Map;
+import java.util.Optional;
+
 
 @Controller
 public class KriliController {
@@ -29,6 +43,8 @@ public class KriliController {
     @Autowired
     private ProprietaireRepository proprietaireRepository;
 
+    @Autowired
+    private IAnnonceReservation dao;
     @RequestMapping("/AnnonceDetails")
     public String Annonne()
     {
@@ -75,6 +91,9 @@ public class KriliController {
             return "redirect:/Acceuil";
         }
     }
+
+
+
     @RequestMapping(value="/Acceuil",method= RequestMethod.GET)
 
     public String consulterAnnounce(Model model , @RequestParam(name = "page",defaultValue = "0") int page,
@@ -93,28 +112,30 @@ public class KriliController {
     @RequestMapping("/Annonce/Details")
     public String Update(Model model,Long id)
     {
-        Annonce annonce=annonceRepository.DetailsAnonce(id);
-        model.addAttribute("Annonce",annonce);
+        Annonce annonces=annonceRepository.DetailsAnonce(id);
+        model.addAttribute("Annonce",annonces);
         return "AnnonceDetails";
     }
 
     @RequestMapping(value = "Annonce/reservation")
 
     public  String Reservation(Model model,Long id){
-        Annonce annonce=annonceRepository.DetailsAnonce(id);
-        model.addAttribute("Annonce",annonce);
+        Annonce annonces=annonceRepository.DetailsAnonce(id);
+        model.addAttribute("Annonce",annonces);
         return "Reservation";
     }
     @PostMapping(value = "/Annonce/Reservation")
-    public String Reservation(Model model,Reservation reservation){
-        reservationRepository.save(reservation);
+    public String Reservation(Model model,Reservation reservation)
+    {
+
+        dao.reserver(reservation);
         return "redirect:/Acceuil";
     }
 
     @RequestMapping(value="/reservation",method=RequestMethod.POST)
 
-    public String reserver(Model model ) {
-
+    public String reserver(Model model )
+    {
         model.addAttribute("reservation",new Reservation());
         return "FormReservation";
     }

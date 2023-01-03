@@ -18,9 +18,10 @@
                 <input type="hidden" name="annonce" th:value="${Annonce.id_announce}">
 
                 <input type="hidden" name="client" th:value="1">
+                <input type="hidden" name="nbr_personnes" th:value="${Annonce.id_announce}">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input type="date" id="from" name="Date_entree" >
+                        <input type="date" id="from" name="Date_entree" th:f >
                     </div>
                     <div class="input-field col s6">
                         <input type="date"  name="Date_sortie" >

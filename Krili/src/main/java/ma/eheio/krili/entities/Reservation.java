@@ -1,7 +1,6 @@
 package ma.eheio.krili.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,23 +16,17 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_reservation;
-
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date Date_entree;
-
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date Date_sortie;
+    private double montantPayer;
 
-    private int Nbr_personnes;
-
-
+    private int nbr_personnes;
     @ManyToOne
     private Client client;
-
-
-
   /* Revoir  OneToMany */
     @ManyToOne
     private Annonce annonce;
