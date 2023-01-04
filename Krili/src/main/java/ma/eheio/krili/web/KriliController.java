@@ -44,6 +44,7 @@ public class KriliController {
     @Autowired
     private ProprietaireRepository proprietaireRepository;
 
+
     @Autowired
     private IAnnonceReservation dao;
     @RequestMapping("/AnnonceDetails")
