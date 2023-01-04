@@ -44,7 +44,6 @@ public class KriliController {
     @Autowired
     private ProprietaireRepository proprietaireRepository;
 
-
     @Autowired
     private IAnnonceReservation dao;
     @RequestMapping("/AnnonceDetails")
@@ -55,7 +54,6 @@ public class KriliController {
     @RequestMapping("/Login_Client")
     public String loginClient(@ModelAttribute Client client)
     {
-
         return "ClientLogin";
     }
     @PostMapping("/Login_Client")
@@ -94,6 +92,42 @@ public class KriliController {
         }
     }
 
+    @RequestMapping("/registerC")
+    public String registerClient(@ModelAttribute Client client)
+    {
+        return "registerClient";
+    }
+    @PostMapping("/registerC")
+    public String registerClient(HttpServletRequest request, @ModelAttribute Client client , Model model)
+    {
+
+        if(!client.getPassword().equals(request.getParameter("passwordConf")) ) {
+            model.addAttribute("erreur", "mot de passe et confirmation non identiques");
+            return "registerClient";
+        }
+        else {
+            Client client1  =clientRepository.save(client);
+            return "redirect:/Login_Client";
+        }
+    }
+    @RequestMapping("/registerP")
+    public String registerProp(@ModelAttribute Client client)
+    {
+        return "registerProp";
+    }
+    @PostMapping("/registerP")
+    public String registerProp(HttpServletRequest request, @ModelAttribute Proprietaire proprietaire, Model model)
+    {
+
+        if(!proprietaire.getPassword().equals(request.getParameter("passwordConf")) ) {
+            model.addAttribute("erreur", "mot de passe et confirmation non identiques");
+            return "registerProp";
+        }
+        else {
+            Proprietaire proprietaire1 =proprietaireRepository.save(proprietaire);
+            return "redirect:/Login_proprietaire";
+        }
+    }
 
 
     @RequestMapping(value="/Acceuil",method= RequestMethod.GET)

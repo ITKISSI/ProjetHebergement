@@ -10,4 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ClientRepository extends JpaRepository<Client,Long> {
     public Client findByEmailAndPassword(String email, String password);
 
+    public Client save(Client client);
+
+
 }

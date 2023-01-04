@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="fragement/layout.html">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Aceuil</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <!--DASHBOARD-->
+  <section>
+    <div class="tr-register">
+      <div class="tr-regi-form">
+        <h4>Créer un compte</h4>
+        <h3>Proprietaire</h3>
+        <p>C'est gratuit et le sera toujours.</p>
+        <form th:action="registerProp" method="post" class="col s12" th:object="${proprietaire}">
+          <div class="row">
+            <div class="input-field col m6 s12">
+              <input type="text" class="validate" th:field="*{prenom}">
+              <label>Prénom</label>
+            </div>
+            <div class="input-field col m6 s12">
+              <input type="text" class="validate" th:field="*{nom}">
+              <label>Nom </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="number" class="validate" th:field="*{telephone}">
+              <label>Téléphone</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="email" class="validate" th:field="*{email}">
+              <label>Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="password" class="validate" th:field="*{password}">
+              <label>Mot de passe</label>
+            </div>
+          </div>
+          <div th:if="${erreur != null} ">
+            <div class="alert alert-danger" th:text="${erreur}">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="password" class="validate" name="passwordConf">
+              <label>Confirmez le mot de passe</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="submit" value="Créer un compte" class="waves-effect waves-light btn-large full-btn"> </div>
+          </div>
+        </form>
+        <p>Êtes-vous déjà membre ?<a href="Login_proprietaire">Cliquez pour vous connecter</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!--END DASHBOARD-->
+  <!--========= Scripts ===========-->
+  <script src="../static/js/jquery-latest.min.js"></script>
+  <script src="../static/js/bootstrap.js"></script>
+  <script src="../static/js/wow.min.js"></script>
+  <script src="../static/js/materialize.min.js"></script>
+  <script src="../static/js/custom.js"></script>
+</div>
+</body>
+
+</html>

@@ -28,7 +28,7 @@ public class Proprietaire {
     @NotBlank(message = "email est obligatoire")
     private String email;
 
-    @NotBlank(message = "Adress est obligatoire")
+
     private String Adress;
 
     @Column(length = 25)
@@ -36,18 +36,18 @@ public class Proprietaire {
     private String password;
 
     @Column(length = 25)
-    @NotBlank(message = "NO_passport est obligatoire")
+
     private String NO_passport;
 
     @Column(length = 25)
-    @NotBlank(message = "Pays est obligatoire")
+
     private String Pays;
 
     @Column(length = 25)
     @NotBlank(message = "Telephone est obligatoire")
     private String Telephone;
 
-    @NotBlank(message = "No_patent est obligatoire")
+
     private String No_patent;
 
     @OneToMany

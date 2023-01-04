@@ -30,18 +30,18 @@ public class Client {
     @NotBlank(message = "email est obligatoire")
     private String email;
 
-    @NotBlank(message = "Adress est obligatoire")
+
     private String Adress;
 
     @Column(length = 25)
     @NotBlank(message = "Password est obligatoire")
     private String password;
 
-    @NotBlank(message = "NO_passport est obligatoire")
+
     @Column(length = 30)
     private String NO_passport;
 
-    @NotBlank(message = "Pays est obligatoire")
+
     @Column(length = 25)
     private String Pays;
 
