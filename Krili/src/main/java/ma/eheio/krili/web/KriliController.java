@@ -93,30 +93,22 @@ public class KriliController {
             return "redirect:/Acceuil";
         }
     }
-
-
-
     @RequestMapping(value="/Acceuil",method= RequestMethod.GET)
-
     public String consulterAnnounce(Model model , @RequestParam(name = "page",defaultValue = "0") int page,
                                     @RequestParam(name = "size",defaultValue = "2") int size) {
 
         Page<Annonce> annonceList = annonceRepository.findAll(PageRequest.of(page, size));
 
         model.addAttribute("AnnonceList", annonceList.getContent());
-
         int[] pages = new int[annonceList.getTotalPages()];
         model.addAttribute("pages", pages);
 
-
-
-
         return "Acceuil";                                                             //       page de reservation +profile + Filtre_annonce..
     }
-    @GetMapping("/test")
+    @GetMapping("/ahmed")
     public String Test(Model model){
-        List<AceuilAnnonce> annonceMy = annonceRepository.AnnonceImage();
-        model.addAttribute("ann", annonceMy);
+       /*List<AceuilAnnonce> annonce1=annonceRepository.AnnonceImage();
+       model.addAttribute("annonce",annonce1);*/
         return "test";
     }
 
@@ -124,7 +116,9 @@ public class KriliController {
     public String Update(Model model,Long id)
     {
         Annonce annonces=annonceRepository.DetailsAnonce(id);
-        model.addAttribute("Annonce",annonces);
+        /*List<Image> images=imageRepository.findImageByAnnonce(1L);        model.addAttribute("image",images);*/
+        model.addAttribute("a",annonces);
+
         return "AnnonceDetails";
     }
 

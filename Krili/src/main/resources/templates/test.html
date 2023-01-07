@@ -7,15 +7,10 @@
     <title>Aceuil</title>
 </head>
 <body>
-<table>
-    <tr>
-        <th>Employee Name</th>
-        <th>Department</th>
-    </tr>
-    <tr th:each="a : ${ann}">
-        <td th:text="${a.titre}"></td>
-        <td th:text="${a.adress}"></td>
-    </tr>
-</table>
+<div layout:fragment="content">
+prtrt
+<img th:src="@{images/Annonce/Annonce11.jpg}" alt="image"/>
+</div>
+
 </body>
 </html>

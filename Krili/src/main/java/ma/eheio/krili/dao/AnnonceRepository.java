@@ -20,6 +20,5 @@ public interface AnnonceRepository  extends JpaRepository<Annonce,Long>
     @Query("SELECT a FROM Annonce a  where  a.id_announce = :idAnnonce")
     public Annonce DetailsAnonce(@Param("idAnnonce") Long idAnnonce);
 
-    @Query(value = "select DISTINCT p1.id_announce,p1.adress,p1.titre,p1.prix ,(SELECT i.image from image i where i.annonce_id_announce=p1.id_announce limit 1) as photo_annonce from image i1 inner join annonce p1 ON i1.annonce_id_announce=p1.id_announce ",nativeQuery = true)
-    public  List<AceuilAnnonce>  AnnonceImage();
+
 }

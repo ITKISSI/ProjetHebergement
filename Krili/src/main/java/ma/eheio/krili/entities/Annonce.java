@@ -51,7 +51,7 @@ public class Annonce {
     @OneToMany
     private Collection<ReductionAnnonce> reductionAnnonces;
 
-    @OneToMany
+    @OneToMany (mappedBy = "annonce" , fetch = FetchType.EAGER)
     private Collection<Image> images;
 
 }
