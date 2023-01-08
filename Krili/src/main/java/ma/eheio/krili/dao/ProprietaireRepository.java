@@ -10,4 +10,5 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ProprietaireRepository extends JpaRepository<Proprietaire,Long> {
 
     public Proprietaire findProprietaireByEmailAndPassword(String email,String password);
+    public Proprietaire save(Proprietaire proprietaire);
 }

@@ -19,7 +19,6 @@
 				<form th:action="Login_Client" method="post" class="col s12" th:object="${client}">
 					<div th:if="${erreur != null} ">
 						<div class="alert alert-danger" th:text="${erreur}">
-
 						</div>
 					</div>
 					<div class="row">
@@ -39,7 +38,7 @@
 							<input type="submit" value="Se connecter" class="waves-effect waves-light btn-large full-btn"> </div>
 					</div>
 				</form>
-				<p><a href="forgot-password.html">mot de passe oublié</a> | Êtes-vous un nouvel utilisateur ? <a href="register.html">Register</a>
+					<p>Êtes-vous un nouvel utilisateur ? <a href="registerC">Register</a>
 				</p>
 			</div>
 		</div>
