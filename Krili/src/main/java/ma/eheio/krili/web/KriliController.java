@@ -71,6 +71,7 @@ public class KriliController {
 
             HttpSession session= request.getSession(true);
             session.setAttribute("id",client1.getId_Client());
+            session.setAttribute("nom",client1.getNom());
             return "redirect:/Acceuil";
         }
     }
@@ -93,7 +94,7 @@ public class KriliController {
             return "redirect:/Acceuil";
         }
     }
-    @RequestMapping(value="/Acceuil",method= RequestMethod.GET)
+    @RequestMapping(value={"/", "/Acceuil"},method= RequestMethod.GET)
     public String consulterAnnounce(Model model , @RequestParam(name = "page",defaultValue = "0") int page,
                                     @RequestParam(name = "size",defaultValue = "2") int size) {
 
